@@ -51,7 +51,6 @@ const NavBarMy = observer(() => {
           >
             <Button
               onClick={() => user.setIsAuth(true)}
-              className="mr-5"
               variant="outline-light"
             >
               Авторизация
