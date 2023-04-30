@@ -5,11 +5,19 @@ export default class DeviceStore {
     this._types = [
       {
         id: 1,
-        name: "Принтер",
+        name: "Принтеры",
       },
       {
         id: 2,
-        name: "Монитор",
+        name: "Мониторы",
+      },
+      {
+        id: 3,
+        name: "Телефоны",
+      },
+      {
+        id: 4,
+        name: "Холодильник",
       },
     ];
     this._brands = [
@@ -20,6 +28,14 @@ export default class DeviceStore {
       {
         id: 2,
         name: "Dell",
+      },
+      {
+        id: 3,
+        name: "Lenovo",
+      },
+      {
+        id: 4,
+        name: "Samsung",
       },
     ];
 
@@ -39,6 +55,8 @@ export default class DeviceStore {
         img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
       },
     ];
+    this._selectedType = {};
+    this._selectedBrand = {};
     makeAutoObservable(this);
   }
 
@@ -50,6 +68,21 @@ export default class DeviceStore {
   }
   setDevices(devices) {
     this._devices = devices;
+  }
+
+  setSelectedType(type) {
+    this._selectedType = type;
+  }
+  setSelectedBrand(brand) {
+    this._selectedBrand = brand;
+  }
+
+  get selectedType() {
+    return this._selectedType;
+  }
+
+  get selectedBrand() {
+    return this._selectedBrand;
   }
   get types() {
     return this._types;
