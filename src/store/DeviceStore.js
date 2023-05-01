@@ -45,14 +45,28 @@ export default class DeviceStore {
         name: "Принтер",
         price: 100,
         rating: 5,
-        img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+        img: "https://static.onlinetrade.ru/img/items/m/1117638_1.jpg",
       },
       {
         id: 2,
         name: "Монитор",
         price: 200,
         rating: 4,
-        img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+        img: "https://static.ru-mi.com/upload/resize_cache/iblock/3d4/440_440_1/3d4aa400db5dbf577a2b00234bcc245e.jpeg",
+      },
+      {
+        id: 3,
+        name: "Холодильник",
+        price: 100,
+        rating: 5,
+        img: "https://img.mvideo.ru/Big/20070445bb.jpg",
+      },
+      {
+        id: 4,
+        name: "Мобильный телефон",
+        price: 200,
+        rating: 4,
+        img: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/b7afd317842837.562bff331a8bc.jpg",
       },
     ];
     this._selectedType = {};
