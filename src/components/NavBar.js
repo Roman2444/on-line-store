@@ -13,6 +13,11 @@ import Button from "react-bootstrap/Button";
 const NavBarMy = observer(() => {
   const { user } = React.useContext(Context);
   const navigate = useNavigate();
+
+  const logOut = () => {
+    user.setUser({});
+    user.setIsAuth(false);
+  };
   return (
     <Navbar bg="primary" variant="dark">
       <Container>
@@ -41,10 +46,7 @@ const NavBarMy = observer(() => {
               Админ панель
             </Button>
             <Button
-              onClick={() => {
-                navigate(LOGIN_ROUTE);
-                user.setIsAuth(false);
-              }}
+              onClick={() => logOut()}
               className="ms-2"
               variant="outline-light"
             >
@@ -59,7 +61,7 @@ const NavBarMy = observer(() => {
             className="ml-auto"
           >
             <Button
-              onClick={() => user.setIsAuth(true)}
+              onClick={() => navigate(LOGIN_ROUTE)}
               variant="outline-light"
             >
               Авторизация

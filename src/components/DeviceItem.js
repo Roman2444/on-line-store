@@ -17,7 +17,11 @@ const DeviceItem = ({ device }) => {
         style={{ cursor: "pointer", width: 200 }}
         key={device.id}
       >
-        <Image width={120} height={120} src={device.img} />
+        <Image
+          width={120}
+          height={120}
+          src={process.env.REACT_APP_API_URL + device.img}
+        />
         <div className="text-black-50 mt-3 d-flex justify-content-between">
           <div>Samsung</div>
           <div className="d-flex align-items-center">
