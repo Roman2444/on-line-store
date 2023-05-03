@@ -11,16 +11,18 @@ import { login, registration } from "../http/userAPI";
 const Auth = () => {
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
+
   const [email, setEmail] = React.useState("123@123.ru");
   const [password, setPassword] = React.useState("12345");
 
-  const click1 = async () => {
+  const signIn = async () => {
     if (isLogin) {
       const response = await login(email, password);
+      console.log(response);
+    } else {
+      const response = await registration(email, password);
+      console.log(response);
     }
-    const response = await registration(email, password);
-    console.log(response);
-    console.log("11");
   };
 
   return (
@@ -51,7 +53,7 @@ const Auth = () => {
           <div className="d-flex justify-content-between align-items-center mt-3">
             {isLogin ? (
               <div>
-                Нет аккаунта?{" "}
+                Нет аккаунта?
                 <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся</NavLink>
               </div>
             ) : (
@@ -60,11 +62,11 @@ const Auth = () => {
               </div>
             )}
             {isLogin ? (
-              <Button onClick={click1} variant="outline-success" type="submit">
+              <Button onClick={signIn} variant="outline-success">
                 Войти
               </Button>
             ) : (
-              <Button onClick={click1} variant="outline-success" type="submit">
+              <Button onClick={signIn} variant="outline-success">
                 Зарегистрироваться
               </Button>
             )}
