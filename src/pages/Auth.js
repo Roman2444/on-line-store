@@ -6,11 +6,23 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import { REGISTRATION_ROUTE, LOGIN_ROUTE } from "../utils/consts";
 import { NavLink, useLocation } from "react-router-dom";
+import { login, registration } from "../http/userAPI";
 
 const Auth = () => {
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
-  console.log(location);
+  const [email, setEmail] = React.useState("123@123.ru");
+  const [password, setPassword] = React.useState("12345");
+
+  const click1 = async () => {
+    if (isLogin) {
+      const response = await login(email, password);
+    }
+    const response = await registration(email, password);
+    console.log(response);
+    console.log("11");
+  };
+
   return (
     <Container
       className="d-flex justify-content-center align-items-center"
@@ -20,11 +32,21 @@ const Auth = () => {
         <Form className="d-flex flex-column">
           <h2 className="m-auto">{isLogin ? "Авторизация" : "Регистрация"}</h2>
           <Form.Group className="mt-3" controlId="formBasicEmail">
-            <Form.Control type="email" placeholder="Введите ваш email" />
+            <Form.Control
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              placeholder="Введите ваш email"
+            />
           </Form.Group>
 
           <Form.Group className="mt-3" controlId="formBasicPassword">
-            <Form.Control type="password" placeholder="Введите ваш пароль" />
+            <Form.Control
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              placeholder="Введите ваш пароль"
+            />
           </Form.Group>
           <div className="d-flex justify-content-between align-items-center mt-3">
             {isLogin ? (
@@ -38,11 +60,11 @@ const Auth = () => {
               </div>
             )}
             {isLogin ? (
-              <Button variant="outline-success" type="submit">
+              <Button onClick={click1} variant="outline-success" type="submit">
                 Войти
               </Button>
             ) : (
-              <Button variant="outline-success" type="submit">
+              <Button onClick={click1} variant="outline-success" type="submit">
                 Зарегистрироваться
               </Button>
             )}

@@ -10,7 +10,7 @@ export const registration = async (email, password) => {
 };
 
 export const login = async (email, password) => {
-  const response = await $authHost.post("api/user/login", {
+  const response = await $host.post("api/user/login", {
     email,
     password,
   });
@@ -18,6 +18,6 @@ export const login = async (email, password) => {
 };
 
 export const check = async () => {
-  const response = await $authHost.post("/auth/registration", {});
+  const response = await $authHost.post("api/user/auth");
   return response;
 };
