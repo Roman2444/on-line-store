@@ -41,7 +41,10 @@ const NavBarMy = observer(() => {
               Админ панель
             </Button>
             <Button
-              onClick={() => navigate(LOGIN_ROUTE)}
+              onClick={() => {
+                navigate(LOGIN_ROUTE);
+                user.setIsAuth(false);
+              }}
               className="ms-2"
               variant="outline-light"
             >

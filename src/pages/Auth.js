@@ -4,11 +4,15 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
-import { REGISTRATION_ROUTE, LOGIN_ROUTE } from "../utils/consts";
-import { NavLink, useLocation } from "react-router-dom";
+import { REGISTRATION_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { login, registration } from "../http/userAPI";
+import { observer } from "mobx-react-lite";
+import { Context } from "../index";
 
-const Auth = () => {
+const Auth = observer(() => {
+  const { user } = React.useContext(Context);
+  const navigate = useNavigate();
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
 
@@ -16,12 +20,19 @@ const Auth = () => {
   const [password, setPassword] = React.useState("12345");
 
   const signIn = async () => {
-    if (isLogin) {
-      const response = await login(email, password);
-      console.log(response);
-    } else {
-      const response = await registration(email, password);
-      console.log(response);
+    try {
+      let userData;
+      if (isLogin) {
+        userData = await login(email, password);
+      } else {
+        userData = await registration(email, password);
+      }
+      console.log(userData);
+      user.setUser(userData);
+      user.setIsAuth(true);
+      navigate(SHOP_ROUTE);
+    } catch (e) {
+      alert(e.response.data.message);
     }
   };
 
@@ -75,6 +86,6 @@ const Auth = () => {
       </Card>
     </Container>
   );
-};
+});
 
 export default Auth;
