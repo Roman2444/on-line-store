@@ -16,16 +16,6 @@ const CreateType = ({ show, onHide }) => {
       <Modal.Body>
         <Form>
           <Form.Control placeholder={"Введите название типа"} />
-          {/* <Dropdown>
-            <Dropdown.Toggle variant="outline" id="dropdown-basic">
-              Выберите тип
-              <Dropdown.Menu>
-                {device.types.map((type) => (
-                  <Dropdown.Item key={type.id}>{type.name}</Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown.Toggle>
-          </Dropdown> */}
         </Form>
       </Modal.Body>
       <Modal.Footer>

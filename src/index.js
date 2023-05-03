@@ -6,6 +6,8 @@ import DeviceStore from "./store/DeviceStore";
 
 export const Context = React.createContext(null);
 
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Context.Provider

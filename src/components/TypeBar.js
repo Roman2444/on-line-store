@@ -5,7 +5,7 @@ import { Context } from "../index";
 
 const TypeBar = observer(() => {
   const { device } = React.useContext(Context);
-  console.log(device);
+
   return (
     <ListGroup>
       {device.types.map((type) => (
