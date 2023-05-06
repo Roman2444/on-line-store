@@ -8,6 +8,7 @@ const CreateBrand = ({ show, onHide }) => {
     createBrand({ name: value }).then((data) => {
       setValue("");
       onHide();
+      alert(`Брэнд ${value} успешно добавлен`);
     });
   };
 
