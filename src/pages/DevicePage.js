@@ -72,7 +72,7 @@ const DevicePage = () => {
               padding: 10,
             }}
           >
-            {item.title} : {item.text}
+            {item.title} : {item.description}
           </Row>
         ))}
       </Row>

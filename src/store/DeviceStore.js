@@ -8,6 +8,11 @@ export default class DeviceStore {
     this._devices = [];
     this._selectedType = {};
     this._selectedBrand = {};
+
+    this._page = 1;
+    this._limit = 3;
+    this._totalCount = 0;
+
     makeAutoObservable(this);
   }
 
@@ -28,6 +33,18 @@ export default class DeviceStore {
     this._selectedBrand = brand;
   }
 
+  setPage(page) {
+    this._page = page;
+  }
+
+  setTotalCount(totalCount) {
+    this._totalCount = totalCount;
+  }
+
+  setLimit(limit) {
+    this._limit = limit;
+  }
+
   get selectedType() {
     return this._selectedType;
   }
@@ -43,5 +60,17 @@ export default class DeviceStore {
   }
   get devices() {
     return this._devices;
+  }
+
+  get page() {
+    return this._page;
+  }
+
+  get limit() {
+    return this._limit;
+  }
+
+  get totalCount() {
+    return this._totalCount;
   }
 }
