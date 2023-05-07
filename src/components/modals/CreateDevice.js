@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 const CreateDevice = observer(({ show, onHide }) => {
   const { device } = useContext(Context);
   const [name, setName] = React.useState("");
-  const [price, setPrice] = React.useState(0);
+  const [price, setPrice] = React.useState("");
   const [file, setFile] = React.useState(null);
   const [type, setType] = React.useState("");
   const [brand, setBrand] = React.useState("");
