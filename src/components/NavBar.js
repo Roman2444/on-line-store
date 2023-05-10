@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
-import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, BASKET_ROUTE } from "../utils/consts";
 import Button from "react-bootstrap/Button";
 
 const NavBarMy = observer(() => {
@@ -39,17 +39,20 @@ const NavBarMy = observer(() => {
             className="ml-auto"
           >
             <Button
+              onClick={() => navigate(BASKET_ROUTE)}
+              className="me-3"
+              variant="danger"
+            >
+              Корзина
+            </Button>
+            <Button
               onClick={() => navigate(ADMIN_ROUTE)}
-              className="mr-5"
+              className="me-3"
               variant="outline-light"
             >
               Админ панель
             </Button>
-            <Button
-              onClick={() => logOut()}
-              className="ms-2"
-              variant="outline-light"
-            >
+            <Button onClick={() => logOut()} variant="outline-light">
               Выйти
             </Button>
           </Nav>
