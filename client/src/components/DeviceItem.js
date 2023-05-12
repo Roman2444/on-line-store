@@ -4,7 +4,8 @@ import { Col, Card, Image } from "react-bootstrap";
 import star from "../assets/star.png";
 import { DEVICE_ROUTE } from "../utils/consts";
 
-const DeviceItem = ({ device }) => {
+const DeviceItem = ({ device, brand }) => {
+  console.log(device);
   const navigate = useNavigate();
   return (
     <Col
@@ -23,13 +24,14 @@ const DeviceItem = ({ device }) => {
           src={process.env.REACT_APP_API_URL + device.img}
         />
         <div className="text-black-50 mt-3 d-flex justify-content-between">
-          <div>Samsung</div>
+          <div>{brand}</div>
           <div className="d-flex align-items-center">
             <div>{device.rating}</div>
             <Image width={15} height={15} src={star} alt="картинка" />
           </div>
         </div>
         <div>{device.name}</div>
+        <div><b>{device.price} ₽</b></div>
       </Card>
     </Col>
   );

@@ -51,8 +51,6 @@ const CreateDevice = observer(({ show, onHide }) => {
     });
   };
 
-  console.log(device.selectedBrand);
-
   return (
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
